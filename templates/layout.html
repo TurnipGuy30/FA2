@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title%}{% endblock %} | Timber Fencing Supplies</title>
+	<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/global.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/bootstrap.min.css') }}">
+	<script src="{{ url_for('static', filename='scripts/global.js') }}"></script>
+	<script src="{{ url_for('static', filename='scripts/bootstrap.min.js') }}"></script>
+	{% block head %}{% endblock %}
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg">
+		<p class="navbar-brand">Timber Fencing Supplies</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="link nav-link" href="{{ url_for('calculator') }}">Materials Calculator</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="box">
+		<hr>
+		{% block content %}{% endblock %}
+	</div>
+</body>
+
+</html>

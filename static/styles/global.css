@@ -1,0 +1,11 @@
+body {
+	background-color: darkslateblue;
+}
+
+nav {
+	padding-left: 10px;
+}
+
+nav .nav-item {
+	padding: 10px;
+}
