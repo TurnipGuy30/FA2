@@ -11,7 +11,7 @@ MarkupSafe
 matplotlib==3.7.1
 numpy
 packaging
-pandas==1.5.3
+pandas==2.0.0
 pillow
 pyparsing
 python-dateutil
