@@ -1,11 +1,125 @@
-body {
-	background-color: darkslateblue;
+/* variables */
+:root {
+	--background: #1f1a42;
+	--highlight: #ff00ff;
+	--io-width: 4em;
+	--link: #00ffff;
+	--text: #ffffff;
 }
 
+/* elements */
+body {
+	background-color: var(--background) !important;
+	color: var(--text) !important;
+}
+button {
+	background-color: var(--background);
+	border: 1px solid var(--text);
+	border-radius: 12px !important;
+	color: var(--text);
+	display: inline-block;
+	margin-top: 1em;
+	text-align: center;
+	text-decoration: none;
+}
+h4 {
+	text-align: center;
+}
 nav {
 	padding-left: 10px;
 }
+table {
+	border: var(--text);
+	border-spacing: 5em;
+	margin-left: 15%;
+	width: 50%;
+}
+td.centered {
+	text-align: center;
+}
+td.left {
+	text-align: left;
+}
+td.io {
+	width: var(--io-width);
+}
+tr.bordered {
+	border-bottom: 1px solid var(--text);
+}
 
-nav .nav-item {
+/* classes */
+.nav-item {
+	color: var(--link) !important;
+	display: block;
+	float: left;
 	padding: 10px;
+	position: relative;
+	text-decoration: none;
+}
+.nav-item a {
+	color: var(--link) !important;
+}
+.nav-item a:hover {
+	border: 1px solid var(--highlight);
+	cursor: pointer;
+}
+.navbar-brand {
+	color: var(--text);
+	font-size: x-large !important;
+	margin-bottom: 0;
+	margin-left: 5%;
+	text-decoration: none;
+}
+
+/* ids */
+#box {
+	bottom: 0;
+	text-align: right;
+	height: 100%;
+	overflow: unset;
+	overflow-x: auto;
+}
+#footer {
+	bottom: 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+#input-form input {
+	border-radius: 12px;
+	text-align: right;
+	width: var(--io-width);
+}
+#input-form label {
+	text-align: center;
+}
+#leftside {
+	float: left;
+	left: 0;
+	position: fixed;
+	width: 50%;
+}
+#leftside table, #rightside table {
+	width: 60%;
+}
+#messages {
+	text-align: center;
+}
+#output-table {
+	border: 0;
+	border-bottom: 1px solid var(--text);
+}
+#rightside {
+	float: right;
+	margin: auto;
+	right: 0;
+	width: 70%;
+}
+#searchbar {
+	float: right;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }

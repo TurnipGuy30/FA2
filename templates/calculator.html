@@ -1,5 +1,188 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-	Materials Calculator
+	Calculator
 {% endblock title %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+	<br>
+	<div id="leftside">
+		<h4>Fence Dimensions</h4>
+		<br>
+		<form id="input-form" action="/calculator" method="POST">
+			<input autocomplete="false" name="hidden" type="text" style="display: none;">
+			<table>
+				<tr>
+					<td>
+						<label for="fence-length">Fence Length</label>
+					</td>
+					<td class="io">
+						<input type="number" id="fence-length" name="fence-length" placeholder="15.0" step="0.1" min="15">
+					</td>
+					<td class="left">
+						m
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="fence-height">Fence Height</label>
+					</td>
+					<td class="io">
+						<input type="number" id="fence-height" name="fence-height" placeholder="2.0" step="0.1" min="2" max="3">
+					</td>
+					<td class="left">
+						m
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="post-spacing">Post Spacing</label>
+					</td>
+					<td class="io">
+						<input type="number" id="post-spacing" name="post-spacing" placeholder="2.0" step="0.1" min="2" max="7">
+					</td>
+					<td class="left">
+						m
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pailing-width">Pailing Width</label>
+					</td>
+					<td class="io">
+						<input type="number" id="pailing-width" name="pailing-width" placeholder="100" step="5" min="100" max="200">
+					</td>
+					<td class="left">
+						mm
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="pailing-spacing">Pailing Spacing</label>
+					</td>
+					<td class="io">
+						<input type="number" id="pailing-spacing" name="pailing-spacing" placeholder="50" step="5" min="50" max="150">
+					</td>
+					<td class="left">
+						mm
+					</td>
+				</tr>
+				</form>
+				<tr>
+					<td>
+						<button id="reset">Reset</button>
+					</td>
+					<td>
+						<button type="submit" value="submit">Calculate</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br>
+		<div id="messages">
+			{% for message in messages %}
+				<p>{{ message }}</p>
+			{% endfor %}
+		</div>
+	</div>
+	<div id="rightside">
+		<table>
+			<tr align="center">
+				<td>
+					<h4>Materials Required</h4>
+				</td>
+				<td>
+					<h4>Estimated Prices</h4>
+				</td>
+			</tr>
+			<tr class="bordered">
+				<td>
+					<table>
+						<tr>
+							<td>
+								<strong>Posts:</strong>
+							</td>
+							<td class="centered io">
+								{{ outputs['posts'] }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Post Spacing:
+							</td>
+							<td class="centered io">
+								{{ outputs['post_spacing'] }}
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="centered io">
+					${{ outputs['posts_price'] }}
+				</td>
+			</tr>
+			<tr class="bordered">
+				<td>
+					<table>
+						<tr>
+							<td>
+								<strong>Rails:</strong>
+							</td>
+							<td class="centered io">
+								{{ outputs['rails'] }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Rail Length:
+							</td>
+							<td class="centered io">
+								{{ outputs['rail_length'] }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Rows of Rails:
+							</td>
+							<td class="centered io">
+								{{ outputs['rows_of_rails'] }}
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="centered io">
+					${{ outputs['rails_price'] }}
+				</td>
+			</tr>
+			<tr class="bordered">
+				<td>
+					<table>
+						<tr>
+							<td>
+								<strong>Pailings:</strong>
+							</td>
+							<td class="centered io">
+								{{ outputs['pailings'] }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Pailing Length:
+							</td>
+							<td class="centered io">
+								{{ outputs['pailing_length'] }}
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="centered io">
+					${{ outputs['pailings_price'] }}
+				</td>
+			</tr>
+			</table>
+		<br>
+		<h4>Estimated Total: ${{ outputs['total_price'] }}</h4>
+	</div>
+{% endblock content %}
