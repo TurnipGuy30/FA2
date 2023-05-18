@@ -20,7 +20,7 @@
 						<label for="fence-length">Fence Length</label>
 					</td>
 					<td class="io">
-						<input type="number" id="fence-length" name="fence-length" placeholder="15.0" step="0.1" min="15">
+						<input type="number" id="fence-length" name="fence-length" step="0.1" min="15">
 					</td>
 					<td class="left">
 						m
@@ -31,32 +31,10 @@
 						<label for="fence-height">Fence Height</label>
 					</td>
 					<td class="io">
-						<input type="number" id="fence-height" name="fence-height" placeholder="2.0" step="0.1" min="2" max="3">
+						<input type="number" id="fence-height" name="fence-height" step="0.1" min="0.5" max="1.8">
 					</td>
 					<td class="left">
 						m
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="post-spacing">Post Spacing</label>
-					</td>
-					<td class="io">
-						<input type="number" id="post-spacing" name="post-spacing" placeholder="2.0" step="0.1" min="2" max="7">
-					</td>
-					<td class="left">
-						m
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<label for="pailing-width">Pailing Width</label>
-					</td>
-					<td class="io">
-						<input type="number" id="pailing-width" name="pailing-width" placeholder="100" step="5" min="100" max="200">
-					</td>
-					<td class="left">
-						mm
 					</td>
 				</tr>
 				<tr>
@@ -64,7 +42,7 @@
 						<label for="pailing-spacing">Pailing Spacing</label>
 					</td>
 					<td class="io">
-						<input type="number" id="pailing-spacing" name="pailing-spacing" placeholder="50" step="5" min="50" max="150">
+						<input type="number" id="pailing-spacing" name="pailing-spacing" step="1" min="0" max="50">
 					</td>
 					<td class="left">
 						mm
@@ -95,7 +73,7 @@
 					<h4>Materials Required</h4>
 				</td>
 				<td>
-					<h4>Estimated Prices</h4>
+					<h4>Estimated Pricings</h4>
 				</td>
 			</tr>
 			<tr class="bordered">
@@ -111,10 +89,18 @@
 						</tr>
 						<tr>
 							<td>
+								Post Length:
+							</td>
+							<td class="centered io">
+								{{ outputs['post_length'] }} m
+							</td>
+						</tr>
+						<tr>
+							<td>
 								Post Spacing:
 							</td>
 							<td class="centered io">
-								{{ outputs['post_spacing'] }}
+								{{ outputs['post_spacing'] }} m
 							</td>
 						</tr>
 					</table>
@@ -139,7 +125,7 @@
 								Rail Length:
 							</td>
 							<td class="centered io">
-								{{ outputs['rail_length'] }}
+								{{ outputs['rail_length'] }} m
 							</td>
 						</tr>
 						<tr>
@@ -172,13 +158,46 @@
 								Pailing Length:
 							</td>
 							<td class="centered io">
-								{{ outputs['pailing_length'] }}
+								{{ outputs['pailing_length'] }} m
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Pailing Width:
+							</td>
+							<td class="centered io">
+								{{ outputs['pailing_width'] }} mm
 							</td>
 						</tr>
 					</table>
 				</td>
 				<td class="centered io">
 					${{ outputs['pailings_price'] }}
+				</td>
+			</tr>
+			<tr class="bordered">
+				<td>
+					<table>
+						<tr>
+							<td>
+								<strong>Concrete Bags:</strong>
+							</td>
+							<td class="centered io">
+								{{ outputs['bags'] }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Bag Weight:
+							</td>
+							<td class="centered io">
+								{{ outputs['bags_weight'] }} kg
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="centered io">
+					${{ outputs['bags_price'] }}
 				</td>
 			</tr>
 			</table>
